@@ -42,8 +42,9 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <upstreamVersion>ca6ec50d22c5ceefecece4846c4e36a79c05e92c</upstreamVersion>
+        <upstreamShortVersion>ca6ec50</upstreamShortVersion>
         <sourceUrl>https://github.com/DataTables/Plugins/archive</sourceUrl>
-        <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstreamVersion}</destDir>
+        <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstreamShortVersion}</destDir>
     </properties>
 
     <dependencies>
