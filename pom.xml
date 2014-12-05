@@ -12,6 +12,7 @@
     <groupId>org.webjars</groupId>
     <artifactId>datatables-plugins</artifactId>
     <version>15ba24c72a-SNAPSHOT</version>
+    <version>9dcbecd42ad-SNAPSHOT</version>
     <name>DataTables Plugins</name>
     <description>WebJar for DataTables Plugins</description>
     <url>http://webjars.org</url>
@@ -41,17 +42,17 @@
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstreamVersion>15ba23c72a02c4665e0686bef83f3880c02eeddd</upstreamVersion>
-        <upstreamShortVersion>15ba23c72a</upstreamShortVersion>
         <sourceUrl>https://github.com/DataTables/Plugins/archive</sourceUrl>
         <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstreamShortVersion}</destDir>
+        <upstreamVersion>9dcbecd42ad1e98e6b0b9210100e8dde02fd97c0</upstreamVersion>
+        <upstreamShortVersion>9dcbecd42ad</upstreamShortVersion>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>datatables</artifactId>
-            <version>1.9.4</version>
+            <version>1.10.0</version>
         </dependency>
     </dependencies>
     
