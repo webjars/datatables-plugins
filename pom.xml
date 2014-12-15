@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>datatables-plugins</artifactId>
-    <version>15ba24c72a-SNAPSHOT</version>
+    <version>9dcbecd42ad-SNAPSHOT</version>
     <name>DataTables Plugins</name>
     <description>WebJar for DataTables Plugins</description>
     <url>http://webjars.org</url>
@@ -33,6 +33,11 @@
 
     <developers>
         <developer>
+            <id>dgervalle</id>
+            <name>Denis Gervalle</name>
+            <email>dgl@softec.lu</email>
+        </developer>
+        <developer>
             <id>jamesward</id>
             <name>James Ward</name>
             <email>james@jamesward.org</email>
@@ -41,59 +46,74 @@
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstreamVersion>15ba23c72a02c4665e0686bef83f3880c02eeddd</upstreamVersion>
-        <upstreamShortVersion>15ba23c72a</upstreamShortVersion>
-        <sourceUrl>https://github.com/DataTables/Plugins/archive</sourceUrl>
-        <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstreamShortVersion}</destDir>
+        <upstreamVersion>9dcbecd42ad1e98e6b0b9210100e8dde02fd97c0</upstreamVersion>
+        <upstreamShortVersion>9dcbecd42ad</upstreamShortVersion>
+        <upstreamSourceArchive>https://github.com/DataTables/Plugins/archive/${upstreamVersion}.zip</upstreamSourceArchive>
+        <webjarResourceDir>META-INF/resources/webjars/${project.artifactId}/${upstreamShortVersion}</webjarResourceDir>
+        <downloadDirectory>${project.build.directory}/generated-resources/maven-download-plugin</downloadDirectory>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>datatables</artifactId>
-            <version>1.9.4</version>
+            <version>1.10.0</version>
         </dependency>
     </dependencies>
     
     <build>
         <plugins>
+            <!-- Download resources from upstream -->
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>wagon-maven-plugin</artifactId>
-                <version>1.0-beta-4</version>
+                <groupId>com.googlecode.maven-download-plugin</groupId>
+                <artifactId>download-maven-plugin</artifactId>
+                <version>1.2.1</version>
                 <executions>
                     <execution>
-                        <phase>process-resources</phase>
-                        <goals><goal>download-single</goal></goals>
+                        <id>get</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>wget</goal>
+                        </goals>
                         <configuration>
-                            <url>${sourceUrl}</url>
-                            <fromFile>${upstreamVersion}.zip</fromFile>
-                            <toFile>${project.build.directory}/${project.artifactId}.zip</toFile>
+                            <url>${upstreamSourceArchive}</url>
+                            <outputDirectory>${downloadDirectory}</outputDirectory>
+                            <unpack>true</unpack>
+                        </configuration>
+                  </execution>
+                </executions>
+            </plugin>
+
+            <!-- Copy resources to the build folder, to include them in the package -->
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.5</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.outputDirectory}</outputDirectory>
+                            <includeEmptyDirs>true</includeEmptyDirs>
+                            <resources>
+                                <resource>
+                                    <targetPath>${webjarResourceDir}</targetPath>
+                                    <directory>${downloadDirectory}/Plugins-${upstreamVersion}</directory>
+                                    <filtering>false</filtering>
+                                    <excludes>
+                                      <exclude>make.sh</exclude>
+                                      <exclude>README.md</exclude>
+                                    </excludes>
+                                </resource>
+                          </resources>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
 
-            <plugin>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <version>1.7</version>
-                <executions>
-                    <execution>
-                        <phase>process-resources</phase>
-                        <goals><goal>run</goal></goals>
-                        <configuration>
-                            <target>
-                                <echo message="unzip archive" />
-                                <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}" />
-                                <echo message="moving resources" />
-                                <move todir="${destDir}">
-                                    <fileset dir="${project.build.directory}/Plugins-${upstreamVersion}" />
-                                </move>
-                            </target>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
@@ -113,5 +133,4 @@
             </plugin>
         </plugins>
     </build>
-    
 </project>
