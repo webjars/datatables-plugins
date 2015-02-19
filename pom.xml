@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>datatables-plugins</artifactId>
-    <version>9dcbecd43ad-SNAPSHOT</version>
+    <version>1.10.5-SNAPSHOT</version>
     <name>DataTables Plugins</name>
     <description>WebJar for DataTables Plugins</description>
     <url>http://webjars.org</url>
@@ -46,10 +46,9 @@
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstreamVersion>9dcbecd42ad1e98e6b0b9210100e8dde02fd97c0</upstreamVersion>
-        <upstreamShortVersion>9dcbecd42ad</upstreamShortVersion>
+        <upstreamVersion>1.10.5</upstreamVersion>
         <upstreamSourceArchive>https://github.com/DataTables/Plugins/archive/${upstreamVersion}.zip</upstreamSourceArchive>
-        <webjarResourceDir>META-INF/resources/webjars/${project.artifactId}/${upstreamShortVersion}</webjarResourceDir>
+        <webjarResourceDir>META-INF/resources/webjars/${project.artifactId}/${project.version}</webjarResourceDir>
         <downloadDirectory>${project.build.directory}/generated-resources/maven-download-plugin</downloadDirectory>
     </properties>
 
@@ -57,7 +56,7 @@
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>datatables</artifactId>
-            <version>1.10.0</version>
+            <version>1.10.5</version>
         </dependency>
     </dependencies>
     
