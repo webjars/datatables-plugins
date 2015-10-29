@@ -11,15 +11,15 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>datatables-plugins</artifactId>
-    <version>1.10.10-SNAPSHOT</version>
+    <version>1.10.9-1-SNAPSHOT</version>
     <name>DataTables Plugins</name>
     <description>WebJar for DataTables Plugins</description>
     <url>http://webjars.org</url>
 
     <licenses>
         <license>
-            <name>None</name>
-            <url>https://github.com/DataTables/Plugins</url>
+            <name>MIT</name>
+            <url>https://raw.githubusercontent.com/DataTables/Plugins/master/License.txt</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
