@@ -46,7 +46,7 @@
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstreamVersion>1.10.10</upstreamVersion>
+        <upstreamVersion>1.10.11</upstreamVersion>
         <upstreamSourceArchive>https://github.com/DataTables/Plugins/archive/${upstreamVersion}.zip</upstreamSourceArchive>
         <webjarResourceDir>META-INF/resources/webjars/${project.artifactId}/${project.version}</webjarResourceDir>
         <downloadDirectory>${project.build.directory}/generated-resources/maven-download-plugin</downloadDirectory>
