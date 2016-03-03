@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>datatables-plugins</artifactId>
-    <version>1.10.11-1</version>
+    <version>1.10.11-2-SNAPSHOT</version>
     <name>DataTables Plugins</name>
     <description>WebJar for DataTables Plugins</description>
     <url>http://webjars.org</url>
@@ -28,7 +28,7 @@
         <url>http://github.com/webjars/datatables-plugins</url>
         <connection>scm:git:https://github.com/webjars/datatables-plugins.git</connection>
         <developerConnection>scm:git:https://github.com/webjars/datatables-plugins.git</developerConnection>
-        <tag>datatables-plugins-1.10.11-1</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <developers>
