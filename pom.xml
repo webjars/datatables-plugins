@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>datatables-plugins</artifactId>
-    <version>1.10.11-2-SNAPSHOT</version>
+    <version>1.10.11-2</version>
     <name>DataTables Plugins</name>
     <description>WebJar for DataTables Plugins</description>
     <url>http://webjars.org</url>
@@ -28,7 +28,7 @@
         <url>http://github.com/webjars/datatables-plugins</url>
         <connection>scm:git:https://github.com/webjars/datatables-plugins.git</connection>
         <developerConnection>scm:git:https://github.com/webjars/datatables-plugins.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>datatables-plugins-1.10.11-2</tag>
     </scm>
 
     <developers>
@@ -125,11 +125,10 @@
                       <configuration>
                           <target>
                             <copy todir="${project.build.outputDirectory}">
-                                <fileset dir="${project.build.outputDirectory}"/>
-                                <globmapper from="*.lang" to="*.json"/>
+                                <fileset dir="${project.build.outputDirectory}" />
+                                <globmapper from="*.lang" to="*.json" />
                             </copy>                        
-                            <replaceregexp replace="" flags="gs" byline="false"
-                                match="/\\*\\*(.*)\\*/">
+                            <replaceregexp replace="" flags="gs" byline="false" match="/\\*\\*(.*)\\*/">
                                 <fileset dir="${project.build.outputDirectory}" includes="**/i18n/*.json" />
                             </replaceregexp>
                           </target>
