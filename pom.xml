@@ -116,7 +116,30 @@
                     </execution>
                 </executions>
             </plugin>
-
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.8</version>
+                <executions>
+                    <execution>
+                      <phase>process-resources</phase>
+                      <configuration>
+                          <target>
+                            <copy todir="${project.build.outputDirectory}">
+                                <fileset dir="${project.build.outputDirectory}"/>
+                                <globmapper from="*.lang" to="*.json"/>
+                            </copy>                        
+                            <replaceregexp replace="" flags="gs" byline="false"
+                                match="/\\*\\*(.*)\\*/">
+                                <fileset dir="${project.build.outputDirectory}" includes="**/i18n/*.json" />
+                            </replaceregexp>
+                          </target>
+                      </configuration>
+                      <goals>
+                          <goal>run</goal>
+                      </goals>
+                    </execution>
+                </executions>
+              </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
