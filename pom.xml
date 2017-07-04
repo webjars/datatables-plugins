@@ -11,10 +11,23 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>datatables-plugins</artifactId>
-    <version>1.10.13-SNAPSHOT</version>
+    <version>1.10.15-SNAPSHOT</version>
     <name>DataTables Plugins</name>
     <description>WebJar for DataTables Plugins</description>
     <url>http://webjars.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <upstreamVersion>1.10.15</upstreamVersion>
+        <upstreamSourceArchive>https://github.com/DataTables/Plugins/archive/${upstreamVersion}.zip</upstreamSourceArchive>
+        <webjarResourceDir>META-INF/resources/webjars/${project.artifactId}/${project.version}</webjarResourceDir>
+        <downloadDirectory>${project.build.directory}/generated-resources/maven-download-plugin</downloadDirectory>
+        <requirejs>
+            {
+            }
+        </requirejs>
+    </properties>
+
 
     <licenses>
         <license>
@@ -44,23 +57,11 @@
         </developer>
     </developers>
     
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstreamVersion>1.10.12</upstreamVersion>
-        <upstreamSourceArchive>https://github.com/DataTables/Plugins/archive/${upstreamVersion}.zip</upstreamSourceArchive>
-        <webjarResourceDir>META-INF/resources/webjars/${project.artifactId}/${project.version}</webjarResourceDir>
-        <downloadDirectory>${project.build.directory}/generated-resources/maven-download-plugin</downloadDirectory>
-        <requirejs>
-            {
-            }
-        </requirejs>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>datatables</artifactId>
-            <version>1.10.12</version>
+            <version>${upstreamVersion}</version>
         </dependency>
     </dependencies>
     
