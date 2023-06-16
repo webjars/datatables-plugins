@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>datatables-plugins</artifactId>
-    <version>1.13.2-SNAPSHOT</version>
+    <version>1.13.4-SNAPSHOT</version>
     <name>DataTables Plugins</name>
     <description>WebJar for DataTables Plugins</description>
     <url>http://webjars.org</url>
@@ -19,7 +19,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <datatablesVersion>1.10.15</datatablesVersion>
-        <upstreamVersion>1.13.1</upstreamVersion>
+        <upstreamVersion>1.13.4</upstreamVersion>
         <upstreamSourceArchive>https://github.com/DataTables/Plugins/archive/${upstreamVersion}.zip</upstreamSourceArchive>
         <webjarResourceDir>META-INF/resources/webjars/${project.artifactId}/${project.version}</webjarResourceDir>
         <downloadDirectory>${project.build.directory}/generated-resources/maven-download-plugin</downloadDirectory>
@@ -140,13 +140,13 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
-                <version>2.5.1</version>
+                <version>3.0.0</version>
             </plugin>
 
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.5</version>
+                <version>1.6.13</version>
                 <extensions>true</extensions>
                 <configuration>
                     <serverId>sonatype-nexus-staging</serverId>
