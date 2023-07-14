@@ -19,8 +19,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <datatablesVersion>1.10.15</datatablesVersion>
-        <upstreamVersion>1.13.4</upstreamVersion>
-        <upstreamSourceArchive>https://github.com/DataTables/Plugins/archive/${upstreamVersion}.zip</upstreamSourceArchive>
+        <upstreamSourceArchive>https://github.com/DataTables/Plugins/archive/${version.unsnapshot}.zip</upstreamSourceArchive>
         <webjarResourceDir>META-INF/resources/webjars/${project.artifactId}/${project.version}</webjarResourceDir>
         <downloadDirectory>${project.build.directory}/generated-resources/maven-download-plugin</downloadDirectory>
         <requirejs>
@@ -68,6 +67,20 @@
     
     <build>
         <plugins>
+            <plugin>
+                <groupId>com.jamesward</groupId>
+                <artifactId>unsnapshot-maven-plugin</artifactId>
+                <version>0.2</version>
+                <executions>
+                    <execution>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>unsnapshot</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
             <!-- Download resources from upstream -->
             <plugin>
                 <groupId>com.googlecode.maven-download-plugin</groupId>
@@ -106,7 +119,7 @@
                             <resources>
                                 <resource>
                                     <targetPath>${webjarResourceDir}</targetPath>
-                                    <directory>${downloadDirectory}/Plugins-${upstreamVersion}</directory>
+                                    <directory>${downloadDirectory}/Plugins-${version.unsnapshot}</directory>
                                     <filtering>false</filtering>
                                 </resource>
                           </resources>
